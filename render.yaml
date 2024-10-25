@@ -1,0 +1,19 @@
+version: "1"
+services:
+  - type: web
+    name: iac_demo_ver2
+    runtime: python
+    repo: https://github.com/FernandoLopezTorrez/iac_webapp
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 app.py
+
+  - type: web
+    name: fastapi_service
+    runtime: python
+    repo: https://github.com/FernandoLopezTorrez/iac_api
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --reload --host 0.0.0.0 --port 8000
