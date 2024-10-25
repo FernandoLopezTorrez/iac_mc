@@ -7,7 +7,7 @@ services:
     plan: free
     region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: python3 app.py
+    startCommand: python3 app_web/app.py
 
   - type: web
     name: fastapi_service
@@ -16,4 +16,4 @@ services:
     plan: free
     region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    startCommand: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
